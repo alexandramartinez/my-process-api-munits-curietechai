@@ -1,0 +1,11 @@
+<testExecutions version="1">
+  <file path="src/test/munit/test_suite_my_process_api_main_1746204.xml">
+    <testCase name="test_suite_my_process_api_main_0" duration="211"/>
+    <testCase name="test_suite_my_process_api_main_1" duration="1099"/>
+  </file>
+  <file path="src/test/munit/test_suite_my_process_api_hr_api_call_1746205.xml">
+    <testCase name="test_suite_my_process_api_hr_api_call_0" duration="628"/>
+    <testCase name="test_suite_my_process_api_hr_api_call_2" duration="163"/>
+    <testCase name="test_suite_my_process_api_hr_api_call_1" duration="114"/>
+  </file>
+</testExecutions>

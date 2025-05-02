@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="MULE_EE.4.9.3.test_suite_my_process_api_main_1746204" time="1.314" failures="0" errors="0" skipped="0" tests="2">
+  <properties>
+    <property key="java.specification.version" value="17"/>
+    <property key="sun.jnu.encoding" value="UTF-8"/>
+    <property key="java.class.path" value="/Users/alexandra.martinez/Documents/PATH/apache-maven-3.8.4/boot/plexus-classworlds-2.6.0.jar"/>
+    <property key="java.vm.vendor" value="Homebrew"/>
+    <property key="sun.arch.data.model" value="64"/>
+    <property key="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property key="user.timezone" value="America/Toronto"/>
+    <property key="maven.conf" value="/Users/alexandra.martinez/Documents/PATH/apache-maven-3.8.4/conf"/>
+    <property key="java.vm.specification.version" value="17"/>
+    <property key="os.name" value="Mac OS X"/>
+    <property key="sun.java.launcher" value="SUN_STANDARD"/>
+    <property key="user.country" value="CA"/>
+    <property key="sun.boot.library.path" value="/usr/local/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property key="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test"/>
+    <property key="jdk.debug" value="release"/>
+    <property key="maven.home" value="/Users/alexandra.martinez/Documents/PATH/apache-maven-3.8.4"/>
+    <property key="sun.cpu.endian" value="little"/>
+    <property key="user.home" value="/Users/alexandra.martinez"/>
+    <property key="user.language" value="en"/>
+    <property key="sun.stderr.encoding" value="UTF-8"/>
+    <property key="java.specification.vendor" value="Oracle Corporation"/>
+    <property key="java.version.date" value="2025-04-15"/>
+    <property key="java.home" value="/usr/local/Cellar/openjdk@17/17.0.15/libexec/openjdk.jdk/Contents/Home"/>
+    <property key="file.separator" value="/"/>
+    <property key="java.vm.compressedOopsMode" value="Zero based"/>
+    <property key="line.separator" value="&#xa;"/>
+    <property key="sun.stdout.encoding" value="UTF-8"/>
+    <property key="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property key="java.specification.name" value="Java Platform API Specification"/>
+    <property key="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property key="java.runtime.version" value="17.0.15+0"/>
+    <property key="user.name" value="alexandra.martinez"/>
+    <property key="path.separator" value=":"/>
+    <property key="os.version" value="15.4.1"/>
+    <property key="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property key="file.encoding" value="UTF-8"/>
+    <property key="guice.disable.misplaced.annotation.check" value="true"/>
+    <property key="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property key="java.vendor.version" value="Homebrew"/>
+    <property key="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property key="java.io.tmpdir" value="/var/folders/lh/8cq57vm51bn545dlqgy33sm40000gq/T/"/>
+    <property key="java.version" value="17.0.15"/>
+    <property key="user.dir" value="/Users/alexandra.martinez/Downloads/my-process-api-munits"/>
+    <property key="os.arch" value="x86_64"/>
+    <property key="maven.multiModuleProjectDirectory" value="/Users/alexandra.martinez/Downloads/my-process-api-munits"/>
+    <property key="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property key="native.encoding" value="UTF-8"/>
+    <property key="java.library.path" value="/Users/alexandra.martinez/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property key="java.vm.info" value="mixed mode, sharing"/>
+    <property key="java.vendor" value="Homebrew"/>
+    <property key="java.vm.version" value="17.0.15+0"/>
+    <property key="classworlds.conf" value="/Users/alexandra.martinez/Documents/PATH/apache-maven-3.8.4/bin/m2.conf"/>
+    <property key="java.specification.maintenance.version" value="1"/>
+    <property key="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property key="library.jansi.path" value="/Users/alexandra.martinez/Documents/PATH/apache-maven-3.8.4/lib/jansi-native"/>
+    <property key="java.class.version" value="61.0"/>
+    <property key="mule.classloader.container.jpmsModuleLayer" value="false"/>
+    <property key="munit.system.properties.file" value="/Users/alexandra.martinez/Downloads/my-process-api-munits/target/user.system.properties"/>
+    <property key="org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER" value="org.glassfish.grizzly.memory.HeapMemoryManager"/>
+  </properties>
+  <testcase time="0.211" name="test_suite_my_process_api_main_0" classname="MULE_EE.4.9.3.test_suite_my_process_api_main_1746204"/>
+  <testcase time="1.099" name="test_suite_my_process_api_main_1" classname="MULE_EE.4.9.3.test_suite_my_process_api_main_1746204"/>
+</testsuite>

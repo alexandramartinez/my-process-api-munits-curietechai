@@ -1,0 +1,6 @@
+SUCCESS - Test test_suite_my_process_api_main_0 finished Successfully.
+SUCCESS - Test test_suite_my_process_api_main_1 finished Successfully.
+
+=============================================================================
+Tests run: 2 - Failures: 0 - Errors: 0 - Skipped: 0 - Time elapsed: 1.314 sec
+=============================================================================

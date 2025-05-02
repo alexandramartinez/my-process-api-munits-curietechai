@@ -1,0 +1,122 @@
+{
+  "resources": [
+    {
+      "name": "my-process-api.xml",
+      "weight": 100.0,
+      "flows": [
+        {
+          "name": "my-process-api:hr-api-call",
+          "type": "SUB_FLOW",
+          "locations": [
+            {
+              "path": "my-process-api:hr-api-call/processors/0/processors/1",
+              "lineNumber": 57
+            },
+            {
+              "path": "my-process-api:hr-api-call/processors/0/errorHandler/0/processors/0",
+              "lineNumber": 74
+            },
+            {
+              "path": "my-process-api:hr-api-call/processors/0/processors/0",
+              "lineNumber": 56
+            },
+            {
+              "path": "my-process-api:hr-api-call/processors/0/errorHandler/1/processors/0",
+              "lineNumber": 77
+            }
+          ],
+          "coveredLocations": [
+            {
+              "path": "my-process-api:hr-api-call/processors/0/processors/1",
+              "lineNumber": 57
+            },
+            {
+              "path": "my-process-api:hr-api-call/processors/0/errorHandler/0/processors/0",
+              "lineNumber": 74
+            },
+            {
+              "path": "my-process-api:hr-api-call/processors/0/processors/0",
+              "lineNumber": 56
+            },
+            {
+              "path": "my-process-api:hr-api-call/processors/0/errorHandler/1/processors/0",
+              "lineNumber": 77
+            }
+          ]
+        },
+        {
+          "name": "my-process-api:vars-and-request",
+          "type": "SUB_FLOW",
+          "locations": [
+            {
+              "path": "my-process-api:vars-and-request/processors/1",
+              "lineNumber": 34
+            },
+            {
+              "path": "my-process-api:vars-and-request/processors/0",
+              "lineNumber": 16
+            }
+          ],
+          "coveredLocations": [
+            {
+              "path": "my-process-api:vars-and-request/processors/1",
+              "lineNumber": 34
+            },
+            {
+              "path": "my-process-api:vars-and-request/processors/0",
+              "lineNumber": 16
+            }
+          ]
+        },
+        {
+          "name": "my-process-api:main",
+          "type": "FLOW",
+          "locations": [
+            {
+              "path": "my-process-api:main/processors/1/processors/0",
+              "lineNumber": 44
+            },
+            {
+              "path": "my-process-api:main/processors/0",
+              "lineNumber": 42
+            },
+            {
+              "path": "my-process-api:main/processors/2",
+              "lineNumber": 46
+            },
+            {
+              "path": "my-process-api:main/processors/3",
+              "lineNumber": 47
+            },
+            {
+              "path": "my-process-api:main/errorHandler/0/processors/0",
+              "lineNumber": 50
+            }
+          ],
+          "coveredLocations": [
+            {
+              "path": "my-process-api:main/processors/1/processors/0",
+              "lineNumber": 44
+            },
+            {
+              "path": "my-process-api:main/processors/0",
+              "lineNumber": 42
+            },
+            {
+              "path": "my-process-api:main/processors/2",
+              "lineNumber": 46
+            },
+            {
+              "path": "my-process-api:main/processors/3",
+              "lineNumber": 47
+            },
+            {
+              "path": "my-process-api:main/errorHandler/0/processors/0",
+              "lineNumber": 50
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

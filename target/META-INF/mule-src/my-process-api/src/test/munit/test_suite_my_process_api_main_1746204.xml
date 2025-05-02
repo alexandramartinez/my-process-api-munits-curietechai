@@ -1,0 +1,121 @@
+<?xml version="1.0" ?>
+<mule xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xsi:schemaLocation="     http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd     http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd     http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
+  <munit:config name="test_suite_my_process_api_main_1746204.xml"/>
+  <munit:test name="test_suite_my_process_api_main_0" description="Happy path scenario where a message is received from Anypoint MQ, variables are set, HR API is called successfully, the result is published to another queue, and the message is acknowledged.">
+    <!-- Set up behavior with mocks -->
+    <munit:behavior>
+      <!-- Set initial event simulating Anypoint MQ message -->
+      <munit:set-event doc:name="Set MQ Event">
+        <munit:payload value="#[MunitTools::getResourceAsString('test_suite_my_process_api_main_1746204/mock_data_scenario_0/mq_subscriber_payload.json')]" mediaType="application/json" encoding="UTF-8"/>
+        <munit:attributes value="#[{                 'ackToken': 'abc-ack-token-123',                 'properties': {                     'transId': 'trans-789'                 }             }]" mediaType="application/java"/>
+      </munit:set-event>
+      <!-- Mock HTTP request in hr-api-call subflow -->
+      <munit-tools:mock-when doc:name="Mock HR API" processor="http:request">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+        <munit-tools:then-return>
+          <munit-tools:payload value="#[MunitTools::getResourceAsString('test_suite_my_process_api_main_1746204/mock_data_scenario_0/hr_api_response.json')]" mediaType="application/json" encoding="UTF-8"/>
+        </munit-tools:then-return>
+      </munit-tools:mock-when>
+      <!-- Mock Anypoint MQ publish -->
+      <munit-tools:mock-when doc:name="Mock MQ Publish" processor="anypoint-mq:publish">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="to queue2" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:mock-when>
+      <!-- Mock Anypoint MQ ack -->
+      <munit-tools:mock-when doc:name="Mock MQ Ack" processor="anypoint-mq:ack">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="queue1" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:mock-when>
+    </munit:behavior>
+    <!-- Execute the flow -->
+    <munit:execution>
+      <flow-ref name="my-process-api:main"/>
+    </munit:execution>
+    <!-- Validate the results -->
+    <munit:validation>
+      <!-- Verify HTTP request was called -->
+      <munit-tools:verify-call doc:name="Verify HR API Call" processor="http:request">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify MQ publish was called -->
+      <munit-tools:verify-call doc:name="Verify MQ Publish" processor="anypoint-mq:publish">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="to queue2" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify MQ ack was called -->
+      <munit-tools:verify-call doc:name="Verify MQ Ack" processor="anypoint-mq:ack">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="queue1" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify final payload structure -->
+      <munit-tools:assert-that doc:name="Assert payload" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+      <munit-tools:assert-that doc:name="Assert payload eid" expression="#[payload.eid]" is="#[MunitTools::equalTo('E12345')]"/>
+      <munit-tools:assert-that doc:name="Assert payload status" expression="#[payload.status]" is="#[MunitTools::equalTo('SUCCESS')]"/>
+      <munit-tools:assert-that doc:name="Assert payload message" expression="#[payload.message]" is="#[MunitTools::equalTo('Record created successfully')]"/>
+    </munit:validation>
+  </munit:test>
+  <munit:test name="test_suite_my_process_api_main_1" doc:id="a1b2c3d4-e5f6-7890-1234-abcdef123456" description="Scenario where the HR API call fails with a connectivity error, triggering error handling and resulting in a negative acknowledgement (nack) to the original queue." expectedErrorType="HTTP:CONNECTIVITY">
+    <!-- Behavior section: Sets up the initial event and mocks external connectors -->
+    <munit:behavior>
+      <!-- Set the initial event simulating an Anypoint MQ message -->
+      <munit:set-event doc:name="Set Input MQ Event" doc:id="b2c3d4e5-f6a7-8901-2345-bcdef1234567">
+        <!-- Reference the payload from a file -->
+        <munit:payload value="#[MunitTools::getResourceAsString('test_suite_my_process_api_main_1746204/mock_data_scenario_1/mq_subscriber_payload.json')]" mediaType="application/json" encoding="UTF-8"/>
+        <!-- Set the required attributes, including ackToken and properties.transId -->
+        <munit:attributes value="#[{ackToken: 'abc123-ack-token', properties: {transId: 'txn-7890'}}]" mediaType="application/java"/>
+      </munit:set-event>
+      <!-- Mock the HTTP Request in the hr-api-call subflow to throw a connectivity error -->
+      <munit-tools:mock-when doc:name="Mock HTTP Request Failure" doc:id="c3d4e5f6-a7b8-9012-3456-cdef12345678" processor="http:request">
+        <munit-tools:with-attributes>
+          <!-- Target the specific HTTP request using doc:name -->
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+        <munit-tools:then-return>
+          <!-- Return an HTTP:CONNECTIVITY error -->
+          <munit-tools:error typeId="HTTP:CONNECTIVITY"/>
+        </munit-tools:then-return>
+      </munit-tools:mock-when>
+      <!-- Mock the Anypoint MQ Nack connector in the error handler -->
+      <munit-tools:mock-when doc:name="Mock MQ Nack" doc:id="d4e5f6a7-b8c9-0123-4567-def123456789" processor="anypoint-mq:nack">
+        <munit-tools:with-attributes>
+          <!-- Target the specific Nack connector using doc:name -->
+          <munit-tools:with-attribute whereValue="queue1" attributeName="doc:name"/>
+          <!-- Verify the correct ackToken is used -->
+          <munit-tools:with-attribute whereValue="#['abc123-ack-token']" attributeName="ackToken"/>
+        </munit-tools:with-attributes>
+        <munit-tools:then-return>
+          <!-- Simulate successful nack (no specific payload needed) -->
+          <munit-tools:payload value="#[null]"/>
+        </munit-tools:then-return>
+      </munit-tools:mock-when>
+    </munit:behavior>
+    <!-- Execution section: Runs the main flow -->
+    <munit:execution>
+      <flow-ref doc:name="Run my-process-api:main" doc:id="e5f6a7b8-c9d0-1234-5678-ef1234567890" name="my-process-api:main"/>
+    </munit:execution>
+    <!-- Validation section: Verifies the expected interactions -->
+    <munit:validation>
+      <!-- Verify the HTTP Request connector was called 3 times (1 initial + 2 retries in until-successful) -->
+      <munit-tools:verify-call doc:name="Verify HTTP Request Called" doc:id="f6a7b8c9-d0e1-2345-6789-f12345678901" processor="http:request" times="3">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify the Anypoint MQ Nack connector was called exactly once in the error handler -->
+      <munit-tools:verify-call doc:name="Verify MQ Nack Called" doc:id="a7b8c9d0-e1f2-3456-7890-123456789012" processor="anypoint-mq:nack" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="queue1" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="#['abc123-ack-token']" attributeName="ackToken"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+    </munit:validation>
+  </munit:test>
+</mule>

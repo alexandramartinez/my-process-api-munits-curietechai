@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<mule xmlns:os="http://www.mulesoft.org/schema/mule/os" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xsi:schemaLocation="     http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd     http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd     http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd     http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd">
+  <munit:config name="test_suite_my_process_api_hr_api_call_1746205.xml"/>
+  <munit:test name="test_suite_my_process_api_hr_api_call_1" doc:id="a1b2c3d4-e5f6-7890-1234-abcdef123456" description="Scenario where the HR API call fails due to a connectivity error, triggering the On Error Propagate handler." expectedErrorType="HTTP:CONNECTIVITY">
+    <!-- Behavior section: Set input event and mock the HTTP Request to throw a connectivity error -->
+    <munit:behavior>
+      <!-- Set the initial Mule event with payload and variables -->
+      <munit:set-event doc:name="Set Input Event" doc:id="b2c3d4e5-f6a7-8901-2345-bcdefa123456">
+        <munit:payload value="#[{ &quot;eid&quot;: &quot;E12345&quot;, &quot;message&quot;: &quot;Initiate onboarding&quot; }]" mediaType="application/json" encoding="UTF-8"/>
+        <munit:variables>
+          <munit:variable key="eid" value="#[&quot;E12345&quot;]" mediaType="application/json" encoding="UTF-8"/>
+        </munit:variables>
+      </munit:set-event>
+      <!-- Mock the HTTP Request connector to throw HTTP:CONNECTIVITY error -->
+      <munit-tools:mock-when doc:name="Mock HTTP Request - Connectivity Error" doc:id="c3d4e5f6-a7b8-9012-3456-cdefab123456" processor="http:request">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="3c2b7c2d-7041-453c-9a37-e3a060536ca0" attributeName="doc:id"/>
+        </munit-tools:with-attributes>
+        <munit-tools:then-return>
+          <!-- Return HTTP:CONNECTIVITY error -->
+          <munit-tools:error typeId="HTTP:CONNECTIVITY"/>
+        </munit-tools:then-return>
+      </munit-tools:mock-when>
+    </munit:behavior>
+    <!-- Execution section: Call the subflow under test -->
+    <munit:execution>
+      <flow-ref doc:name="Call my-process-api:hr-api-call" doc:id="d4e5f6a7-b8c9-0123-4567-defabc123456" name="my-process-api:hr-api-call"/>
+    </munit:execution>
+    <!-- Validation section: Verify that the expected components were called -->
+    <munit:validation>
+      <!-- Verify that the HTTP Request connector was called exactly once -->
+      <munit-tools:verify-call doc:name="Verify HTTP Request Call" doc:id="e5f6a7b8-c9d0-1234-5678-efabcd123456" processor="http:request" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="3c2b7c2d-7041-453c-9a37-e3a060536ca0" attributeName="doc:id"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify that the 'Connection error' logger was called exactly once -->
+      <munit-tools:verify-call doc:name="Verify Connection Error Logger" doc:id="f6a7b8c9-d0e1-2345-6789-fabcde123456" processor="logger" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Connection error" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="8a246324-1173-4e3f-abe8-b406bbba276a" attributeName="doc:id"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify that the 'Create Successful Response' transform was NOT called -->
+      <munit-tools:verify-call doc:name="Verify Successful Response Transform Not Called" doc:id="a7b8c9d0-e1f2-3456-7890-abcdef123457" processor="ee:transform" times="0">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Create Successful Response" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="0872e243-8f8b-467b-8aad-9f8cedc409a1" attributeName="doc:id"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify that the 'Create Error Response' transform (in On Error Continue) was NOT called -->
+      <munit-tools:verify-call doc:name="Verify Error Response Transform Not Called" doc:id="b8c9d0e1-f2a3-4567-8901-bcdefa123457" processor="ee:transform" times="0">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Create Error Response" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="1095617d-faca-40b3-9d07-84376d5a01c1" attributeName="doc:id"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+    </munit:validation>
+  </munit:test>
+  <munit:test name="test_suite_my_process_api_hr_api_call_0" doc:id="a1b2c3d4-e5f6-7890-1234-abcdef012345" description="Happy path scenario where the HR API call is successful and returns a valid response.">
+    <!-- Behavior section: Mock external calls and set preconditions -->
+    <munit:behavior>
+      <!-- Set input variables required by the flow -->
+      <munit:set-event doc:name="Set Input Event" doc:id="b2c3d4e5-f6a7-8901-2345-bcdef0123456">
+        <munit:variables>
+          <munit:variable key="eid" value="&quot;test-eid-123&quot;" mediaType="application/json" encoding="UTF-8"/>
+        </munit:variables>
+      </munit:set-event>
+      <!-- Mock the HTTP Request to the HR API to simulate a successful response -->
+      <munit-tools:mock-when doc:name="Mock HR API Success" doc:id="c3d4e5f6-a7b8-9012-3456-cdef01234567" processor="http:request">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+          <munit-tools:with-attribute whereValue="POST" attributeName="method"/>
+          <munit-tools:with-attribute whereValue="/employees" attributeName="path"/>
+        </munit-tools:with-attributes>
+        <munit-tools:then-return>
+          <!-- Return a successful payload from a file -->
+          <munit-tools:payload value="#[MunitTools::getResourceAsString('test_suite_my_process_api_hr_api_call_1746205/mock_data_scenario_0/hr_api_success_response.json')]" mediaType="application/json" encoding="UTF-8"/>
+          <munit-tools:attributes value="#[{ statusCode: 200 }]"/>
+        </munit-tools:then-return>
+      </munit-tools:mock-when>
+    </munit:behavior>
+    <!-- Execution section: Run the subflow under test -->
+    <munit:execution>
+      <flow-ref doc:name="Flow-ref to my-process-api:hr-api-call" doc:id="d4e5f6a7-b8c9-0123-4567-def012345678" name="my-process-api:hr-api-call"/>
+    </munit:execution>
+    <!-- Validation section: Verify interactions and assert final state -->
+    <munit:validation>
+      <!-- Verify that the HTTP Request connector was called exactly once -->
+      <munit-tools:verify-call doc:name="Verify HR API Call" doc:id="e5f6a7b8-c9d0-1234-5678-ef0123456789" processor="http:request" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify that the 'Create Successful Response' transform was executed exactly once -->
+      <munit-tools:verify-call doc:name="Verify Create Successful Response Transform" doc:id="f6a7b8c9-d0e1-2345-6789-f01234567890" processor="ee:transform" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Create Successful Response" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Assert that the final payload matches the expected successful response structure -->
+      <munit-tools:assert-that doc:name="Assert Final Payload" doc:id="a7b8c9d0-e1f2-3456-7890-012345678901" expression="#[payload]" is="#[MunitTools::equalTo({             &quot;eid&quot;: &quot;12345&quot;,             &quot;status&quot;: &quot;SUCCESS&quot;,             &quot;message&quot;: &quot;Record created successfully&quot;         })]"/>
+      <!-- Verify that the error response transform was NOT called -->
+      <munit-tools:verify-call doc:name="Verify Create Error Response Transform Not Called" doc:id="b8c9d0e1-f2a3-4567-8901-123456789012" processor="ee:transform" times="0">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Create Error Response" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify that the connection error logger was NOT called -->
+      <munit-tools:verify-call doc:name="Verify Connection Error Logger Not Called" doc:id="c9d0e1f2-a3b4-5678-9012-234567890123" processor="logger" times="0">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Connection error" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+    </munit:validation>
+  </munit:test>
+  <munit:test name="test_suite_my_process_api_hr_api_call_2" description="Scenario where the HR API call fails due to a bad request or any other error, triggering the On Error Continue handler and creating an error response.">
+    <!-- Behavior section: Set up the test conditions -->
+    <munit:behavior>
+      <!-- Mock the HTTP Request to throw a BAD_REQUEST error -->
+      <munit-tools:mock-when doc:name="Mock HTTP Request - BAD_REQUEST" processor="http:request">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+        <munit-tools:then-return>
+          <munit-tools:error typeId="HTTP:BAD_REQUEST"/>
+        </munit-tools:then-return>
+      </munit-tools:mock-when>
+      <!-- Set the initial payload for the test -->
+      <munit:set-event doc:name="Set Event with Test Payload">
+        <munit:payload value="#[MunitTools::getResourceAsString('test_suite_my_process_api_hr_api_call_1746205/mock_data_scenario_2/hr_api_request.json')]" mediaType="application/json" encoding="UTF-8"/>
+      </munit:set-event>
+    </munit:behavior>
+    <!-- Execution section: Call the flow to be tested -->
+    <munit:execution>
+      <flow-ref doc:name="Call hr-api-call subflow" name="my-process-api:hr-api-call"/>
+    </munit:execution>
+    <!-- Validation section: Verify the expected outcomes -->
+    <munit:validation>
+      <!-- Verify that the HTTP Request was called -->
+      <munit-tools:verify-call doc:name="Verify HTTP Request was called" processor="http:request" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="HR API" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Verify that the Create Error Response transform was executed -->
+      <munit-tools:verify-call doc:name="Verify Create Error Response transform was executed" processor="ee:transform" times="1">
+        <munit-tools:with-attributes>
+          <munit-tools:with-attribute whereValue="Create Error Response" attributeName="doc:name"/>
+        </munit-tools:with-attributes>
+      </munit-tools:verify-call>
+      <!-- Assert that the final payload matches the expected error response structure -->
+      <munit-tools:assert-that doc:name="Assert payload has eid field" expression="#[payload.eid]" is="#[MunitTools::equalTo('12345')]"/>
+      <munit-tools:assert-that doc:name="Assert payload has ERROR status" expression="#[payload.status]" is="#[MunitTools::equalTo('ERROR')]"/>
+      <munit-tools:assert-that doc:name="Assert payload has error message" expression="#[payload.message]" is="#[MunitTools::equalTo('Invalid request format')]"/>
+    </munit:validation>
+  </munit:test>
+</mule>

@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MUnit Coverage Report</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles/mulesoft-styles.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/tsorter.css">
+</head>
+<body>
+<div class="mulesoft-topbar">
+    <div class="mulesoft-appbar">
+        <div class="muleicon muleicon-logo"></div>
+        <div class="anypoint-brand">MUnit Coverage Report - my-process-api.xml</div>
+    </div>
+</div>
+
+<div class="col-md-2 col-md-offset-1 sidemenu">
+    <ul class="sidemenu-back">
+        <li><a href="./summary.html">Resources</a></li>
+    </ul>
+</div>
+
+<div class="col-md-8">
+    <h2 class="text-bold">Resource Coverage - #Processors 11 / 11</h2>
+    <div class="progress">
+        <span>100%</span>
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+             aria-valuemax="100" style="width: 100%;">
+        </div>
+    </div>
+    <ul class="list-unstyled">
+        <li><h4><b>Required Resource Coverage :</b>
+            N/A
+        </h4></li>
+        <li><h4><b>Required Container Coverage :</b>
+            N/A
+        </h4></li>
+    </ul>
+    <h2 class="text-bold">Containers</h2>
+    <table id="resources_table" class="table table-featured table-hover sortable">
+        <thead>
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Type</th>
+            <th data-tsorter="numeric">#Covered Processors</th>
+            <th data-tsorter="numeric">#Processors</th>
+            <th data-tsorter="coverage">Coverage*</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        <tr>
+            <td colspan="2">my-process-api:hr-api-call</td>
+            <td>Sub flow</td>
+            <td>4</td>
+            <td>4</td>
+            <td>
+                <div class="progress">
+                    <span>100%</span>
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">my-process-api:vars-and-request</td>
+            <td>Sub flow</td>
+            <td>2</td>
+            <td>2</td>
+            <td>
+                <div class="progress">
+                    <span>100%</span>
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">my-process-api:main</td>
+            <td>Flow</td>
+            <td>5</td>
+            <td>5</td>
+            <td>
+                <div class="progress">
+                    <span>100%</span>
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <table>
+            <tbody>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        1
+                    </td>
+                    <td>
+
+                            &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        2
+                    </td>
+                    <td>
+
+                            
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        3
+                    </td>
+                    <td>
+
+                            &lt;mule xmlns:http=&quot;http://www.mulesoft.org/schema/mule/http&quot; xmlns:ee=&quot;http://www.mulesoft.org/schema/mule/ee/core&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        4
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:anypoint-mq=&quot;http://www.mulesoft.org/schema/mule/anypoint-mq&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        5
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns=&quot;http://www.mulesoft.org/schema/mule/core&quot; xmlns:doc=&quot;http://www.mulesoft.org/schema/mule/documentation&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        6
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/anypoint-mq http://www.mulesoft.org/schema/mule/anypoint-mq/current/mule-anypoint-mq.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        7
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        8
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        9
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;anypoint-mq:config name=&quot;Anypoint_MQ_Config&quot; doc:name=&quot;Anypoint MQ Config&quot; doc:id=&quot;64790599-e783-4afa-95a4-c16d4585fd41&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        10
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;anypoint-mq:connection clientId=&quot;test&quot; clientSecret=&quot;test&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        11
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/anypoint-mq:config&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        12
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;http:request-config name=&quot;HTTP_Request_configuration&quot; doc:name=&quot;HTTP Request configuration&quot; doc:id=&quot;ba6a804e-5964-4624-9bc9-c0be519b2e99&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        13
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;http:request-connection host=&quot;hrapi.com&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        14
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/http:request-config&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        15
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;sub-flow name=&quot;my-process-api:vars-and-request&quot; doc:id=&quot;9d28902b-053f-40f1-afee-bcd2a1ab715c&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        16
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;ee:transform doc:name=&quot;Create vars&quot; doc:id=&quot;920daee1-57fd-4844-947d-2589e175251c&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        17
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        18
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        19
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;ee:variables&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        20
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;ee:set-variable variableName=&quot;ackToken&quot;&gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        21
+                    </td>
+                    <td>
+
+                            output application/java
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        22
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        23
+                    </td>
+                    <td>
+
+                            attributes.ackToken]]&gt;&lt;/ee:set-variable&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        24
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;ee:set-variable variableName=&quot;transId&quot;&gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        25
+                    </td>
+                    <td>
+
+                            output application/java
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        26
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        27
+                    </td>
+                    <td>
+
+                            attributes.properties.transId]]&gt;&lt;/ee:set-variable&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        28
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;ee:set-variable variableName=&quot;eid&quot;&gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        29
+                    </td>
+                    <td>
+
+                            output application/java
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        30
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        31
+                    </td>
+                    <td>
+
+                            payload.EmployeeId]]&gt;&lt;/ee:set-variable&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        32
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/ee:variables&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        33
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;/ee:transform&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        34
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;ee:transform doc:name=&quot;Create Request&quot; doc:id=&quot;06ee1941-39e3-4b54-8b81-d57e9ede7a3c&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        35
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        36
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;ee:set-payload resource=&quot;dw/hr-request.dwl&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        37
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        38
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;/ee:transform&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        39
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/sub-flow&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        40
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;flow name=&quot;my-process-api:main&quot; doc:id=&quot;fea87d08-24b7-4339-bc70-cfb6761f016c&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        41
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;anypoint-mq:subscriber doc:name=&quot;queue1&quot; doc:id=&quot;706d9088-bb88-45a0-b508-c054365e4acf&quot; config-ref=&quot;Anypoint_MQ_Config&quot; destination=&quot;queue1&quot; acknowledgementMode=&quot;MANUAL&quot; acknowledgementTimeout=&quot;3&quot; acknowledgementTimeoutUnit=&quot;MINUTES&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        42
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;flow-ref doc:name=&quot;my-process-api:vars-and-request&quot; doc:id=&quot;f02833e0-ec6f-4e62-8d7e-d275c1eb54e4&quot; name=&quot;my-process-api:vars-and-request&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        43
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;until-successful maxRetries=&quot;2&quot; doc:name=&quot;Until Successful&quot; doc:id=&quot;fcc040ed-ff78-4d51-bd29-c38659ab872e&quot; millisBetweenRetries=&quot;500&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        44
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;flow-ref doc:name=&quot;my-process-api:hr-api-call&quot; doc:id=&quot;dabbb930-1ec6-49fd-a6f2-4b80f9a2cc9d&quot; name=&quot;my-process-api:hr-api-call&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        45
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;/until-successful&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        46
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;anypoint-mq:publish doc:name=&quot;to queue2&quot; doc:id=&quot;6c13ae81-85f1-4f12-8810-36939fa75bfc&quot; config-ref=&quot;Anypoint_MQ_Config&quot; destination=&quot;queue2&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        47
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;anypoint-mq:ack doc:name=&quot;queue1&quot; doc:id=&quot;61d194d0-6d8b-421b-9594-c2eee435019c&quot; config-ref=&quot;Anypoint_MQ_Config&quot; ackToken=&quot;#[vars.ackToken]&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        48
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;error-handler &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        49
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;on-error-propagate enableNotifications=&quot;true&quot; logException=&quot;true&quot; doc:name=&quot;On Error Propagate&quot; doc:id=&quot;238789c9-18cd-4377-ba25-325356f3910e&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        50
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;anypoint-mq:nack doc:name=&quot;queue1&quot; doc:id=&quot;de9a49ad-820e-4aea-8d18-6180ed41160f&quot; config-ref=&quot;Anypoint_MQ_Config&quot; ackToken=&quot;#[vars.ackToken]&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        51
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/on-error-propagate&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        52
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;/error-handler&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        53
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/flow&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        54
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;sub-flow name=&quot;my-process-api:hr-api-call&quot; doc:id=&quot;ba9e95fc-fd78-454c-9fa7-71a38f0dcf5d&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        55
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;try doc:name=&quot;Try&quot; doc:id=&quot;4fb21513-5d48-4ebf-9470-553bcb6555dc&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        56
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;http:request method=&quot;POST&quot; doc:name=&quot;HR API&quot; doc:id=&quot;3c2b7c2d-7041-453c-9a37-e3a060536ca0&quot; config-ref=&quot;HTTP_Request_configuration&quot; path=&quot;/employees&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        57
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;ee:transform doc:name=&quot;Create Successful Response&quot; doc:id=&quot;0872e243-8f8b-467b-8aad-9f8cedc409a1&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        58
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;ee:message &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        59
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;ee:set-payload &gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        60
+                    </td>
+                    <td>
+
+                            output application/json
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        61
+                    </td>
+                    <td>
+
+                            
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        62
+                    </td>
+                    <td>
+
+                            var message = payload.message
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        63
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        64
+                    </td>
+                    <td>
+
+                            {
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        65
+                    </td>
+                    <td>
+
+                                eid: payload.eid default vars.eid,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        66
+                    </td>
+                    <td>
+
+                                status: &quot;SUCCESS&quot;,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        67
+                    </td>
+                    <td>
+
+                                message: if (isEmpty(message)) &quot;Operation was a success&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        68
+                    </td>
+                    <td style="text-indent:10px">
+
+                                	else message
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        69
+                    </td>
+                    <td>
+
+                            }]]&gt;&lt;/ee:set-payload&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        70
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        71
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/ee:transform&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        72
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;error-handler &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        73
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;on-error-propagate enableNotifications=&quot;true&quot; logException=&quot;true&quot; doc:name=&quot;On Error Propagate&quot; doc:id=&quot;70268a7e-8f4c-4d64-ae01-070f17a4ccbf&quot; type=&quot;HTTP:CONNECTIVITY&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        74
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;logger level=&quot;ERROR&quot; doc:name=&quot;Connection error&quot; doc:id=&quot;8a246324-1173-4e3f-abe8-b406bbba276a&quot; message=&quot;Connection error&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        75
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/on-error-propagate&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        76
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;on-error-continue enableNotifications=&quot;true&quot; logException=&quot;true&quot; doc:name=&quot;On Error Continue&quot; doc:id=&quot;f08c79d7-8ab6-415c-9984-aeed5fdd758f&quot; type=&quot;ANY&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        77
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;ee:transform doc:name=&quot;Create Error Response&quot; doc:id=&quot;1095617d-faca-40b3-9d07-84376d5a01c1&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        78
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;ee:message &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        79
+                    </td>
+                    <td style="text-indent:70px">
+
+                            							&lt;ee:set-payload &gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        80
+                    </td>
+                    <td>
+
+                            output application/json
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        81
+                    </td>
+                    <td>
+
+                            
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        82
+                    </td>
+                    <td>
+
+                            var message = payload.message default error.description
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        83
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        84
+                    </td>
+                    <td>
+
+                            {
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        85
+                    </td>
+                    <td>
+
+                                eid: payload.eid default vars.eid,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        86
+                    </td>
+                    <td>
+
+                                status: &quot;ERROR&quot;,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        87
+                    </td>
+                    <td>
+
+                                message: if (isEmpty(message)) &quot;No error message&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        88
+                    </td>
+                    <td style="text-indent:10px">
+
+                                	else message
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        89
+                    </td>
+                    <td>
+
+                            }]]&gt;&lt;/ee:set-payload&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        90
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;/ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        91
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/ee:transform&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        92
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/on-error-continue&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        93
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/error-handler&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        94
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;/try&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        95
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/sub-flow&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        96
+                    </td>
+                    <td>
+
+                            &lt;/mule&gt;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        </tbody>
+    </table>
+    <h4>(*) Number of processors executed during test</h4>
+</div>
+<script type="text/javascript" src="./assets/js/tsorter.min.js"></script>
+<script type="text/javascript">
+    function init() {
+        var sorter = tsorter.create('resources_table', 0, {
+            coverage: function (row) {
+                var cov = this.getCell(row).childNodes[1].childNodes[3].attributes['aria-valuenow'].textContent;
+                return parseFloat(cov.substring(cov[0].length - 1), 10);
+            }
+        });
+    }
+
+    window.onload = init;
+
+</script>
+</body>
+</html>
