@@ -2,6 +2,8 @@
 
 Based on my other repo, I used it to generate MUnit tests using [CurieTech AI](https://www.curietech.ai/) and these are the results.
 
+Check out this video to see how we generated the tests: [Cursor AI vs CurieTech AI: Who Writes Better MUnit Tests for MuleSoft?](https://youtu.be/x0WgKgeH2kE)
+
 ## Similar repos
 
 [![](https://github-readme-stats.vercel.app/api/pin/?username=alexandramartinez&repo=my-process-api-munits&theme=holi)](https://github.com/alexandramartinez/my-process-api-munits)
